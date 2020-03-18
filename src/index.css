@@ -61,3 +61,38 @@ html,body{height:100%;font-family:muli,sans-serif;-webkit-font-smoothing:antiali
   .f{
    
    background-image: url("./img/products/man-large.jpg");  }
+
+
+
+
+
+   man-banner {
+    padding-right: 65px;
+    padding-left: 65px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  .women-banner {
+    padding-right: 65px;
+    padding-left: 65px;
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+  .instagram-photo .insta-item {
+    float: left;
+    width: 16.66%;
+    height: 320px;
+    text-align: center;
+    position: relative;
+    margin-left: 43px;
+    margin-bottom: 30px;
+  }
+  .col-lg-4 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+  }
+
+  
