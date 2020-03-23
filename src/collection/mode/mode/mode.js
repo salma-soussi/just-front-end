@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink, Row, Table } from 'reactstrap';
 import Item from "./item"
 import womn from "../../../img/products/women-1.jpg"
 
@@ -14,9 +15,88 @@ import womn4 from "../../../img/products/malek.jpg"
 
 import Header from "../../../header"
 import Footer from "../../../footer"
-
+import list from "./list"
+let prev  = 0;
+let next  = 0;
+let last  = 0;
+let first = 0;
 class shop extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { produit: [],
+            currentPage: 1,
+            todosPerPage: 9 }
+            this.handleClick = this.handleClick.bind(this);
+
+    this.handleLastClick = this.handleLastClick.bind(this);
+
+    this.handleFirstClick = this.handleFirstClick.bind(this);
+       
+      }
+      handleClick(event) {
+
+        event.preventDefault();
+    
+        this.setState({
+          currentPage: Number(event.target.id)
+        });
+      }
+      handleLastClick(event) {
+    
+        event.preventDefault();
+    
+        this.setState({
+          currentPage:last
+        });
+      }
+      handleFirstClick(event) {
+    
+        event.preventDefault();
+    
+        this.setState({
+          currentPage:1
+        });
+      }
+           
+          
+          
+          componentDidMount() {
+            this.getAll();
+          }
+          getAll() {
+            fetch("http://localhost:3020/product/list", {method: "GET"})
+              .then(response => response.json())
+              .then(data => {
+                console.log("produit", data);
+                this.setState({produit: data})
+              })
+          }
     render() {
+        let {produit, currentPage, todosPerPage} = this.state;
+         // Logic for displaying current todos
+
+    let indexOfLastTodo = currentPage * todosPerPage;
+
+    let indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+
+    let currentTodos = produit.slice(indexOfFirstTodo, indexOfLastTodo);
+
+
+    prev = currentPage > 0 ? (currentPage - 1) : 0;
+
+    last = Math.ceil(produit.length / todosPerPage);
+
+    next = (last === currentPage) ? currentPage : currentPage + 1;
+
+
+
+    // Logic for displaying page numbers
+
+    let pageNumbers = [];
+
+    for (let i = 1; i <= last; i++) {
+      pageNumbers.push(i);
+    }
         return (
             <div>
                 <Header />
@@ -130,6 +210,8 @@ class shop extends Component {
                                 </div>
                                 <div class="product-list">
                                     <div class="row">
+                                   
+                                    {currentTodos.map((el, index) => <Item item={el} key={index} />)}
                                        {/* <div class="col-lg-4 col-sm-6">
                                             <div class="product-item">
                                                 <div class="pi-pic">
@@ -358,15 +440,60 @@ class shop extends Component {
                                             </div>
                                         </div>
         */}</div>
-                                </div>
+         
+        <nav>
+
+        <Pagination className="d-flex">
+    
+          <PaginationItem>
+            { prev === 0 ? <PaginationLink disabled>First</PaginationLink> :
+              <PaginationLink onClick={this.handleFirstClick} id={prev} href={prev}>First</PaginationLink>
+            }
+          </PaginationItem>
+          <PaginationItem>
+            { prev === 0 ? <PaginationLink disabled>Prev</PaginationLink> :
+              <PaginationLink onClick={this.handleClick} id={prev} href={prev}>Prev</PaginationLink>
+            }
+          </PaginationItem>
+          {
+            pageNumbers.map((number,i) =>
+              <Pagination key= {i}>
+                <PaginationItem active = {pageNumbers[currentPage-1] === (number) ? true : false} >
+                  <PaginationLink onClick={this.handleClick} href={number} key={number} id={number}>
+                    {number}
+                  </PaginationLink>
+                </PaginationItem>
+              </Pagination>
+            )}
+    
+          <PaginationItem>
+            {
+              currentPage === last ? <PaginationLink disabled>Next</PaginationLink> :
+                <PaginationLink onClick={this.handleClick} id={pageNumbers[currentPage]} href={pageNumbers[currentPage]}>Next</PaginationLink>
+            }
+          </PaginationItem>
+    
+          <PaginationItem>
+            {
+              currentPage === last ? <PaginationLink disabled>Last</PaginationLink> :
+                <PaginationLink onClick={this.handleLastClick} id={pageNumbers[currentPage]} href={pageNumbers[currentPage]}>Last</PaginationLink>
+            }
+          </PaginationItem>
+        </Pagination>
+      </nav>
+    
+    
+        </div>
+        </div>                       
+        </div>
                                 <div class="loading-more">
                                     <i class="icon_loading"></i>
                                     <a href="#">
                                         Loading More
                         </a>
                                 </div>
-                            </div>
-                        </div>
+                            
+                        
                     </div>
                 </section>
 

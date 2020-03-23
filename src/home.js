@@ -370,7 +370,7 @@ incididunt ut labore et dolore</p>
                             <div class="col-lg-3 offset-lg-1">
                                 <div class="product-large  m-large f"
                                 >
-                                    <h2>Info</h2>
+                                    <h2>Informatique</h2>
                                     <a href="#">Discover More</a>
                                 </div>
                             </div>
