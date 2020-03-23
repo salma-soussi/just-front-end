@@ -1,115 +1,119 @@
 import React, { Component } from 'react';
-import prod1 from "./img/select-product-1.jpg" 
-import prod2 from "./img/select-product-2.jpg" 
+import prod1 from "./img/select-product-1.jpg"
+import prod2 from "./img/select-product-2.jpg"
+import { Route, Link,NavLink, BrowserRouter as Router } from 'react-router-dom'
 class Header extends Component {
-    render() { 
+    render() {
         return (
             <div>
-          
-<div id="preloder">
-<div class="loader"></div>
-</div>
 
-<header class="header-section">
-<div class="header-top">
-<div class="container">
-<div class="ht-left">
-<div class="mail-service">
-<i class=" fa fa-envelope"></i>
-<a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5ddd0d9d9da9bd6dad9dac7d9dcd7f5d2d8d4dcd99bd6dad8">[justtn.pfe@gmail.com]</a>
-</div>
-<div class="phone-service">
-<i class=" fa fa-phone"></i>
+                <div id="preloder">
+                    <div class="loader"></div>
+                </div>
+
+                <header class="header-section">
+                    <div class="header-top">
+                        <div class="container">
+                            <div class="ht-left">
+                                <div class="mail-service">
+                                    <i class=" fa fa-envelope"></i>
+                                    <a >email: justtn.pfe@gmail.com </a>
+                                </div>
+                                <div class="phone-service">
+                                    <i class=" fa fa-phone"></i>
 +216 22 749 274
 </div>
-</div>
-<div class="ht-right">
-<a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                            </div>
+                            <div class="ht-right">
+                                <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
 
-<div class="top-social">
-<a href="#"><i class="ti-facebook"></i></a>
-<a href="#"><i class="ti-linkedin"></i></a>
-<a href="#"><i class="ti-pinterest"></i></a>
-</div>
-</div>
-</div>
-</div>
-<div class="container">
-<div class="inner-header">
-<div class="row">
-<div class="col-lg-2 col-md-2">
-<div class="logo">
-<a href="index-2.html">
-<img src="./img/logo.png" alt=""/>
-</a>
-</div>
-</div>
-<div class="col-lg-7 col-md-7">
-<div class="advanced-search">
-<button type="button" class="category-btn" >All Categories</button>
-<div class="input-group">
-<input type="text" placeholder="What do you need?"/>
-<button type="button"><i class="ti-search"></i></button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="nav-item">
-<div class="container">
-<div class="nav-depart">
-<div class="depart-btn">
-<i class="ti-menu"></i>
-<span>All departments</span>
-<ul class="depart-hover">
-<li class="active"><a href="#">Women’s Clothing</a></li>
-<li><a href="#">Men’s Clothing</a></li>
-<li><a href="#">Kid's clothing</a></li>
-<li><a href="#">Computers</a></li>
- <li><a href="#">Makeup</a></li>
-<li><a href="#">Accessories</a></li>
-<li><a href="#">Perfumes</a></li>
-<li><a href="#">Living room furniture</a></li>
-</ul>
-</div>
-</div>
-<nav class="nav-menu mobile-menu">
-<ul>
-<li class="active"><a href="index-2.html">Home</a></li>
-<li><a href="shop.html">Shop</a></li>
-<li><a href="#">Collection</a>
-<ul class="dropdown">
-<li><a href="#">Mode</a></li>
-<li><a href="#">Informatique</a></li>
-<li><a href="#">Fourniture</a></li>
-<li><a href="#">Beauty</a></li>
-<li><a href="#">Electronique</a></li>
+                                <div class="top-social">
+                                    <a href="#"><i class="ti-facebook"></i></a>
+                                    <a href="#"><i class="ti-linkedin"></i></a>
+                                    <a href="#"><i class="ti-pinterest"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="inner-header">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="logo">
+                                        <a href="index-2.html">
+                                            <img src="./img/logo.png" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="advanced-search">
+                                        <button type="button" class="category-btn" >All Categories</button>
+                                        <div class="input-group">
+                                            <input type="text" placeholder="What do you need?" />
+                                            <button type="button"><i class="ti-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <div class="container">
+                            <div class="nav-depart">
+                                <div class="depart-btn">
+                                    <i class="ti-menu"></i>
+                                    <span> departments</span>
+                                    <ul class="depart-hover">
+                                        
+                                        <li class="active"> <NavLink exact to="/mode">Mode</NavLink></li>
+                                        <li > <NavLink exact to="/informatique">Informatique</NavLink></li>
+                                        <li > <NavLink exact to="/fourniture">Fourniture</NavLink></li>
+                                            <li > <NavLink exact to="/beaute">Beauté</NavLink></li>
+                                            <li > <NavLink exact to="/electronique">Electronique</NavLink></li>
+                                            <li > <NavLink exact to="/sport">Sport</NavLink></li>
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                            <nav class="nav-menu mobile-menu">
+                                <ul>
+                                    <li class="active"><a href="index-2.html">Home</a></li>
+                                  
+                                    <li > <NavLink exact to="/shop">Shop</NavLink></li>
+                                    <li><a href="#">Collection</a>
+                                        <ul class="dropdown">
+                                        <li > <NavLink exact to="/mode">Mode</NavLink></li>
+                                        <li > <NavLink exact to="/informatique">Informatique</NavLink></li>
+                                        <li > <NavLink exact to="/fourniture">Fourniture</NavLink></li>
+                                            <li > <NavLink exact to="/beaute">Beauté</NavLink></li>
+                                            <li > <NavLink exact to="/electronique">Electronique</NavLink></li>
+                                            <li > <NavLink exact to="/sport">Sport</NavLink></li>
 
-</ul>
-</li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="#">Pages</a>
-<ul class="dropdown">
-<li><a href="blog-details.html">Blog Details</a></li>
-<li><a href="shopping-cart.html">Shopping Cart</a></li>
-<li><a href="check-out.html">Checkout</a></li>
-<li><a href="faq.html">Faq</a></li>
-<li><a href="register.html">Register</a></li>
-<li><a href="login.html">Login</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-<div id="mobile-menu-wrap"></div>
-</div>
-</div>
-</header>
-      
-         </div>
+                                        </ul>
+                                    </li>
+                                    <li > <NavLink exact to="/contact">Contact</NavLink></li>
+                                   
+                                   
+                                    <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                    <li><NavLink exact to="/loginasbuyer">Se Connecter</NavLink></li>
+                                    <li><NavLink exact to="/signupasbuyer"> CRÉER UN COMPTE</NavLink></li>
+                                    <li><NavLink exact to="/schoppingcard"> Shopping Cart</NavLink></li>
+                                    <li><a href="faq.html">Faq</a></li>
+                                   
+                                  
+                                    </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div id="mobile-menu-wrap"></div>
+                        </div>
+                    </div>
+                </header>
+
+            </div>
         );
     }
 }
- 
+
 export default Header;

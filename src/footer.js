@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import log1 from "./img/logo-carousel/arvea.png"
-import log2 from "./img/logo-carousel/exist.png"
-import log3 from "./img/logo-carousel/ha.jpg"
-import log4 from "./img/logo-carousel/HM.png"
-import log5 from "./img/logo-carousel/meuble.jpg"
+import log1 from "./img/fatales.png"
+import log2 from "./img/exist1.png"
+import log3 from "./img/flormar.png"
+import log4 from "./img/bershka.png"
+import log5 from "./img/zara.png"
 import logof from "./img/footer-logo.png"
 import payment from "./img/payment-method.png"
 class Footer extends Component {
@@ -53,9 +53,9 @@ class Footer extends Component {
 <a href="#"><img src={logof} alt=""/></a>
 </div>
 <ul>
-<li>Address: 60-49 Road 11378 New York</li>
+<li>Address: 60 Road 11378 New York</li>
 <li>Phone: +216 22 749 274</li>
-<li>Email: <a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="157d7079797a3b767a797a67797c77557278747c793b767a78">[justtn.pfe@gmail.com]</a></li>
+<li>Email: <a >justtn.pfe@gmail.com</a></li>
 </ul>
 <div class="footer-social">
 <a href="#"><i class="fa fa-facebook"></i></a>

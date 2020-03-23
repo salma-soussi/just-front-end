@@ -5,6 +5,9 @@ import Login from "./Login"
 import Login2 from './Login2'
 import Signup from './Signup'
 import Signup2 from './Signup2'
+import Contact from "./contact"
+import Mode from "./collection/mode/mode/mode"
+import Schoppingcard from "./shoppingcard"
 class Routes extends Component {
     render() { 
         return (
@@ -14,6 +17,9 @@ class Routes extends Component {
             <Route exact path="/loginasseller" component={Login2} />
             <Route exact path="/signupasbuyer" component={Signup} />
             <Route exact path="/signupasseller" component={Signup2} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/mode" component={Mode} />
+            <Route exact path="/schoppingcard" component={Schoppingcard} />
             </div>
         );
     }
