@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink, Row, Table } from 'reactstrap';
 import Item from "./item"
-import womn from "../../../img/products/women-1.jpg"
+import womn from "../../img/products/women-1.jpg"
 
-import womn3 from "../../../img/products/im66.jpg"
-import womn4 from "../../../img/products/malek.jpg"
-
-
+import womn3 from "../../img/products/im66.jpg"
+import womn4 from "../../img/products/malek.jpg"
 
 
 
 
 
 
-import Header from "../../../header"
-import Footer from "../../../footer"
+
+
+import Header from "../../header"
+import Footer from "../../footer"
 import list from "./list"
 let prev  = 0;
 let next  = 0;
@@ -23,7 +23,7 @@ let first = 0;
 class shop extends Component {
     constructor(props) {
         super(props);
-        this.state = { produit: [],
+        this.state = { mode: [],
             currentPage: 1,
             todosPerPage: 9 }
             this.handleClick = this.handleClick.bind(this);
@@ -64,27 +64,27 @@ class shop extends Component {
             this.getAll();
           }
           getAll() {
-            fetch("http://localhost:3020/product/list", {method: "GET"})
+            fetch("http://localhost:3020/mode/list", {method: "GET"})
               .then(response => response.json())
               .then(data => {
-                console.log("produit", data);
-                this.setState({produit: data})
+                console.log("mode", data);
+                this.setState({mode: data})
               })
           }
     render() {
-        let {produit, currentPage, todosPerPage} = this.state;
+        let {mode, currentPage, todosPerPage} = this.state;
          // Logic for displaying current todos
 
     let indexOfLastTodo = currentPage * todosPerPage;
 
     let indexOfFirstTodo = indexOfLastTodo - todosPerPage;
 
-    let currentTodos = produit.slice(indexOfFirstTodo, indexOfLastTodo);
+    let currentTodos = mode.slice(indexOfFirstTodo, indexOfLastTodo);
 
 
     prev = currentPage > 0 ? (currentPage - 1) : 0;
 
-    last = Math.ceil(produit.length / todosPerPage);
+    last = Math.ceil(mode.length / todosPerPage);
 
     next = (last === currentPage) ? currentPage : currentPage + 1;
 

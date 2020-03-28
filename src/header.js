@@ -69,7 +69,7 @@ class Header extends Component {
                                         <li > <NavLink exact to="/informatique">Informatique</NavLink></li>
                                         <li > <NavLink exact to="/fourniture">Fourniture</NavLink></li>
                                             <li > <NavLink exact to="/beaute">Beauté</NavLink></li>
-                                            <li > <NavLink exact to="/electronique">Electronique</NavLink></li>
+                                            <li > <NavLink exact to="/eletronique">Electronique</NavLink></li>
                                             <li > <NavLink exact to="/sport">Sport</NavLink></li>
                                        
                                     </ul>
@@ -77,17 +77,17 @@ class Header extends Component {
                             </div>
                             <nav class="nav-menu mobile-menu">
                                 <ul>
-                                    <li class="active"><a href="index-2.html">Home</a></li>
-                                  
+                                    
+                                    <li class="active" > <NavLink exact to="/">Home</NavLink></li>
                                     <li > <NavLink exact to="/shop">Shop</NavLink></li>
                                     <li><a href="#">Collection</a>
                                         <ul class="dropdown">
                                         <li > <NavLink exact to="/mode">Mode</NavLink></li>
                                         <li > <NavLink exact to="/informatique">Informatique</NavLink></li>
                                         <li > <NavLink exact to="/fourniture">Fourniture</NavLink></li>
-                                            <li > <NavLink exact to="/beaute">Beauté</NavLink></li>
-                                            <li > <NavLink exact to="/electronique">Electronique</NavLink></li>
-                                            <li > <NavLink exact to="/sport">Sport</NavLink></li>
+                                        <li > <NavLink exact to="/beaute">Beauté</NavLink></li>
+                                        <li > <NavLink exact to="/eletronique">Electronique</NavLink></li>
+                                        <li > <NavLink exact to="/sport">Sport</NavLink></li>
 
                                         </ul>
                                     </li>
