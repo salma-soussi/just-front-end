@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Route, Link,NavLink, BrowserRouter as Router } from 'react-router-dom'
 class Item extends Component {
    
     render() { 
@@ -15,7 +15,7 @@ class Item extends Component {
                                                 </div>
                                                 <ul>
                                                     <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                                    <li class="quick-view"><Link to="detailmode">+ Quick View</Link></li>
                                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                                 </ul>
                                             </div>

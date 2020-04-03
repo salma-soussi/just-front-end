@@ -79,7 +79,7 @@ class Header extends Component {
                                 <ul>
                                     
                                     <li class="active" > <NavLink exact to="/">Home</NavLink></li>
-                                    <li > <NavLink exact to="/shop">Shop</NavLink></li>
+                                    <li > <NavLink exact to="/schop">Shop</NavLink></li>
                                     <li><a href="#">Collection</a>
                                         <ul class="dropdown">
                                         <li > <NavLink exact to="/mode">Mode</NavLink></li>
