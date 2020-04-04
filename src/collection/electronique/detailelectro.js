@@ -24,7 +24,7 @@ class Product extends Component {
         this.getOne()
     }
     getOne() {
-        fetch("http://localhost:3020/mode/getByID/" + localStorage.getItem("idc"), { method: "GET" })
+        fetch("http://localhost:3020/electronic/getByID/" + localStorage.getItem("idc"), { method: "GET" })
             .then(response => response.json())
             .then(data => {
                 console.log("GETONE", data);
@@ -43,18 +43,18 @@ class Product extends Component {
                                 <div class="preview col-md-6">
 
                                     <div class="preview-pic tab-content">
-                                        <div class="tab-pane active" id="pic-1"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[0]}`} /></div>
-                                        <div class="tab-pane" id="pic-2"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[1]}`} /></div>
-                                        <div class="tab-pane" id="pic-3"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[2]}`} /></div>
-                                        <div class="tab-pane" id="pic-4"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[3]}`} /></div>
-                                        <div class="tab-pane" id="pic-5"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[4]}`} /></div>
+                                        <div class="tab-pane active" id="pic-1"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[0]}`} /></div>
+                                        <div class="tab-pane" id="pic-2"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[1]}`} /></div>
+                                        <div class="tab-pane" id="pic-3"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[2]}`} /></div>
+                                        <div class="tab-pane" id="pic-4"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[3]}`} /></div>
+                                        <div class="tab-pane" id="pic-5"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[4]}`} /></div>
                                     </div>
                                     <ul class="preview-thumbnail nav nav-tabs">
-                                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[0]}`} /></a></li>
-                                        <li><a data-target="#pic-2" data-toggle="tab"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[1]}`} /></a></li>
-                                        <li><a data-target="#pic-3" data-toggle="tab"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[2]}`} /></a></li>
-                                        <li><a data-target="#pic-4" data-toggle="tab"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[3]}`} /></a></li>
-                                        <li><a data-target="#pic-5" data-toggle="tab"><img src={`http://localhost:3020/mode/getImage/${this.state.product.image[4]}`} /></a></li>
+                                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[0]}`} /></a></li>
+                                        <li><a data-target="#pic-2" data-toggle="tab"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[1]}`} /></a></li>
+                                        <li><a data-target="#pic-3" data-toggle="tab"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[2]}`} /></a></li>
+                                        <li><a data-target="#pic-4" data-toggle="tab"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[3]}`} /></a></li>
+                                        <li><a data-target="#pic-5" data-toggle="tab"><img src={`http://localhost:3020/electronic/getImage/${this.state.product.image[4]}`} /></a></li>
                                     </ul>
                                 </div>
                                 <div class="details col-md-6">

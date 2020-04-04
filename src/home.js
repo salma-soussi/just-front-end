@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link,NavLink, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Link, NavLink, BrowserRouter as Router } from 'react-router-dom'
 import mode from "./img/img6.jpg"
 import info from "./img/img4.jpg"
 import beauty from "./img/img1.jpg"
@@ -33,6 +33,12 @@ import spor from "./img/products/z1.jpg"
 import spor1 from "./img/products/z3.jpg"
 import spor2 from "./img/products/z6.jpg"
 import spor3 from "./img/products/z32.jpg"
+
+import log1 from "./img/fatales.png"
+import log2 from "./img/exist1.png"
+import log3 from "./img/flormar.png"
+import log4 from "./img/bershka.png"
+import log5 from "./img/zara.png"
 
 
 import icon from "./img/icon-1.png"
@@ -98,8 +104,8 @@ incididunt ut labore et dolore</p>
                                 <div class="single-banner">
                                     <img src={mode} />
                                     <div class="inner-text">
-                                    <li > <NavLink exact to="/mode"><h4>Mode</h4></NavLink></li>
-                                        
+                                        <li > <NavLink exact to="/mode"><h4>Mode</h4></NavLink></li>
+
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +113,7 @@ incididunt ut labore et dolore</p>
                                 <div class="single-banner">
                                     <img src={info} />
                                     <div class="inner-text">
-                                    <li > <NavLink exact to="/informatique"><h4>Informatique</h4></NavLink></li>
+                                        <li > <NavLink exact to="/informatique"><h4>Informatique</h4></NavLink></li>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +121,7 @@ incididunt ut labore et dolore</p>
                                 <div class="single-banner">
                                     <img src={beauty} />
                                     <div class="inner-text">
-                                    <li > <NavLink exact to="/beaute"><h4>Beauté</h4></NavLink></li>
+                                        <li > <NavLink exact to="/beaute"><h4>Beauté</h4></NavLink></li>
                                     </div>
                                 </div>
                             </div>
@@ -123,8 +129,8 @@ incididunt ut labore et dolore</p>
                                 <div class="single-banner">
                                     <img src={furniture} />
                                     <div class="inner-text">
-                                    <li > <NavLink exact to="/fourniture"><h4>Furniture</h4></NavLink></li>
-                                        
+                                        <li > <NavLink exact to="/fourniture"><h4>Furniture</h4></NavLink></li>
+
                                     </div>
                                 </div>
                             </div>
@@ -132,8 +138,8 @@ incididunt ut labore et dolore</p>
                                 <div class="single-banner">
                                     <img src={electronic} />
                                     <div class="inner-text">
-                                    <li > <NavLink exact to="/electronique"><h4>Electronique</h4></NavLink></li>
-                                    
+                                        <li > <NavLink exact to="/electronique"><h4>Electronique</h4></NavLink></li>
+
                                     </div>
                                 </div>
                             </div>
@@ -141,8 +147,8 @@ incididunt ut labore et dolore</p>
                                 <div class="single-banner">
                                     <img src={sport} />
                                     <div class="inner-text">
-                                    <li > <NavLink exact to="/sport"><h4>Sport</h4></NavLink></li>
-                                      
+                                        <li > <NavLink exact to="/sport"><h4>Sport</h4></NavLink></li>
+
                                     </div>
                                 </div>
                             </div>
@@ -831,38 +837,40 @@ incididunt ut labore et dolore</p>
                     </div>
                 </section>
 
-                <div class="instagram-photo">
-                    <div class="insta-item e5" >
-                        <div class="inside-text">
-                            <i class="ti-instagram"></i>
-                            <h5><a href="#">colorlib_Collection</a></h5>
-                        </div>
-                    </div>
-                    <div class="insta-item e6" >
-                        <div class="inside-text">
-                            <i class="ti-instagram"></i>
-                            <h5><a href="#">colorlib_Collection</a></h5>
-                        </div>
-                    </div>
-                    <div class="insta-item e7" >
-                        <div class="inside-text">
-                            <i class="ti-instagram"></i>
-                            <h5><a href="#">colorlib_Collection</a></h5>
-                        </div>
-                    </div>
-                    <div class="insta-item e8">
-                        <div class="inside-text">
-                            <i class="ti-instagram"></i>
-                            <h5><a href="#">colorlib_Collection</a></h5>
-                        </div>
-                    </div>
-                    <div class="insta-item e9" >
-                        <div class="inside-text">
-                            <i class="ti-instagram"></i>
-                            <h5><a href="#">colorlib_Collection</a></h5>
+                <div class="partner-logo">
+                    <div class="container">
+                        <div class="logo-carousel owl-carousel">
+                            <div class="logo-item">
+                                <div class="tablecell-inner">
+                                    <img src={log1} alt="" />
+                                </div>
+                            </div>
+                            <div class="logo-item">
+                                <div class="tablecell-inner">
+                                    <img src={log2} alt="" />
+                                </div>
+                            </div>
+                            <div class="logo-item">
+                                <div class="tablecell-inner">
+                                    <img src={log3} alt="" />
+                                </div>
+                            </div>
+                            <div class="logo-item">
+                                <div class="tablecell-inner">
+                                    <img src={log4} alt="" />
+                                </div>
+                            </div>
+                            <div class="logo-item">
+                                <div class="tablecell-inner">
+                                    <img src={log5} alt="" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
 
                 <Footer />
 

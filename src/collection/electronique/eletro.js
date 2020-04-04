@@ -243,12 +243,7 @@ class Electronique extends Component {
                               </nav>
                             
                             
-                                <div class="loading-more">
-                                    <i class="icon_loading"></i>
-                                    <a href="#">
-                                        Loading More
-                        </a>
-                                </div>
+                              
                             </div>
                         </div>
                     </div>

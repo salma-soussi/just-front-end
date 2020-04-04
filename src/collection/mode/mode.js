@@ -16,87 +16,89 @@ import womn4 from "../../img/products/malek.jpg"
 import Header from "../../header"
 import Footer from "../../footer"
 import list from "./list"
-let prev  = 0;
-let next  = 0;
-let last  = 0;
+let prev = 0;
+let next = 0;
+let last = 0;
 let first = 0;
 class shop extends Component {
     constructor(props) {
         super(props);
-        this.state = { mode: [],
+        this.state = {
+            mode: [],
             currentPage: 1,
-            todosPerPage: 9 }
-            this.handleClick = this.handleClick.bind(this);
+            todosPerPage: 9
+        }
+        this.handleClick = this.handleClick.bind(this);
 
-    this.handleLastClick = this.handleLastClick.bind(this);
+        this.handleLastClick = this.handleLastClick.bind(this);
 
-    this.handleFirstClick = this.handleFirstClick.bind(this);
-       
-      }
-      handleClick(event) {
+        this.handleFirstClick = this.handleFirstClick.bind(this);
 
-        event.preventDefault();
-    
-        this.setState({
-          currentPage: Number(event.target.id)
-        });
-      }
-      handleLastClick(event) {
-    
-        event.preventDefault();
-    
-        this.setState({
-          currentPage:last
-        });
-      }
-      handleFirstClick(event) {
-    
-        event.preventDefault();
-    
-        this.setState({
-          currentPage:1
-        });
-      }
-           
-          
-          
-          componentDidMount() {
-            this.getAll();
-          }
-          getAll() {
-            fetch("http://localhost:3020/mode/list", {method: "GET"})
-              .then(response => response.json())
-              .then(data => {
-                console.log("mode", data);
-                this.setState({mode: data})
-              })
-          }
-    render() {
-        let {mode, currentPage, todosPerPage} = this.state;
-         // Logic for displaying current todos
-
-    let indexOfLastTodo = currentPage * todosPerPage;
-
-    let indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-
-    let currentTodos = mode.slice(indexOfFirstTodo, indexOfLastTodo);
-
-
-    prev = currentPage > 0 ? (currentPage - 1) : 0;
-
-    last = Math.ceil(mode.length / todosPerPage);
-
-    next = (last === currentPage) ? currentPage : currentPage + 1;
-
-
-
-    // Logic for displaying page numbers
-
-    let pageNumbers = [];
-
-    for (let i = 1; i <= last; i++) {
-      pageNumbers.push(i);
     }
+    handleClick(event) {
+
+        event.preventDefault();
+
+        this.setState({
+            currentPage: Number(event.target.id)
+        });
+    }
+    handleLastClick(event) {
+
+        event.preventDefault();
+
+        this.setState({
+            currentPage: last
+        });
+    }
+    handleFirstClick(event) {
+
+        event.preventDefault();
+
+        this.setState({
+            currentPage: 1
+        });
+    }
+
+
+
+    componentDidMount() {
+        this.getAll();
+    }
+    getAll() {
+        fetch("http://localhost:3020/mode/list", { method: "GET" })
+            .then(response => response.json())
+            .then(data => {
+                console.log("mode", data);
+                this.setState({ mode: data })
+            })
+    }
+    render() {
+        let { mode, currentPage, todosPerPage } = this.state;
+        // Logic for displaying current todos
+
+        let indexOfLastTodo = currentPage * todosPerPage;
+
+        let indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+
+        let currentTodos = mode.slice(indexOfFirstTodo, indexOfLastTodo);
+
+
+        prev = currentPage > 0 ? (currentPage - 1) : 0;
+
+        last = Math.ceil(mode.length / todosPerPage);
+
+        next = (last === currentPage) ? currentPage : currentPage + 1;
+
+
+
+        // Logic for displaying page numbers
+
+        let pageNumbers = [];
+
+        for (let i = 1; i <= last; i++) {
+            pageNumbers.push(i);
+        }
         return (
             <div>
                 <Header />
@@ -210,290 +212,55 @@ class shop extends Component {
                                 </div>
                                 <div class="product-list">
                                     <div class="row">
-                                   
-                                    {currentTodos.map((el, index) => <Item item={el} key={index} />)}
-                                       {/* <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn} alt="" />
-                                                    <div class="sale pp-sale">Sale</div>
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Towel</div>
-                                                    <a href="#">
-                                                        <h5>Pure Pineapple</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $14.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn} alt="" />
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Coat</div>
-                                                    <a href="#">
-                                                        <h5>Guangzhou sweater</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $13.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn} alt="" />
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Shoes</div>
-                                                    <a href="#">
-                                                        <h5>Guangzhou sweater</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $34.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn} alt="" />
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Coat</div>
-                                                    <a href="#">
-                                                        <h5>Microfiber Wool Scarf</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $64.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn4} alt="" />
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Shoes</div>
-                                                    <a href="#">
-                                                        <h5>Men's Painted Hat</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $44.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn4} alt="" />
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Shoes</div>
-                                                    <a href="#">
-                                                        <h5>Converse Shoes</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $34.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn4} alt="" />
-                                                    <div class="sale pp-sale">Sale</div>
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Towel</div>
-                                                    <a href="#">
-                                                        <h5>Pure Pineapple</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $64.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn3} alt="" />
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Coat</div>
-                                                    <a href="#">
-                                                        <h5>2 Layer Windbreaker</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $44.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="pi-pic">
-                                                    <img src={womn3} alt="" />
-                                                    <div class="icon">
-                                                        <i class="icon_heart_alt"></i>
-                                                    </div>
-                                                    <ul>
-                                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pi-text">
-                                                    <div class="catagory-name">Shoes</div>
-                                                    <a href="#">
-                                                        <h5>Converse Shoes</h5>
-                                                    </a>
-                                                    <div class="product-price">
-                                                        $34.00
-                                            <span>$35.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-        */}</div>
-         
-        <nav>
 
-        <Pagination className="d-flex">
-    
-          <PaginationItem>
-            { prev === 0 ? <PaginationLink disabled>First</PaginationLink> :
-              <PaginationLink onClick={this.handleFirstClick} id={prev} href={prev}>First</PaginationLink>
-            }
-          </PaginationItem>
-          <PaginationItem>
-            { prev === 0 ? <PaginationLink disabled>Prev</PaginationLink> :
-              <PaginationLink onClick={this.handleClick} id={prev} href={prev}>Prev</PaginationLink>
-            }
-          </PaginationItem>
-          {
-            pageNumbers.map((number,i) =>
-              <Pagination key= {i}>
-                <PaginationItem active = {pageNumbers[currentPage-1] === (number) ? true : false} >
-                  <PaginationLink onClick={this.handleClick} href={number} key={number} id={number}>
-                    {number}
-                  </PaginationLink>
-                </PaginationItem>
-              </Pagination>
-            )}
-    
-          <PaginationItem>
-            {
-              currentPage === last ? <PaginationLink disabled>Next</PaginationLink> :
-                <PaginationLink onClick={this.handleClick} id={pageNumbers[currentPage]} href={pageNumbers[currentPage]}>Next</PaginationLink>
-            }
-          </PaginationItem>
-    
-          <PaginationItem>
-            {
-              currentPage === last ? <PaginationLink disabled>Last</PaginationLink> :
-                <PaginationLink onClick={this.handleLastClick} id={pageNumbers[currentPage]} href={pageNumbers[currentPage]}>Last</PaginationLink>
-            }
-          </PaginationItem>
-        </Pagination>
-      </nav>
-    
-    
-        </div>
-        </div>                       
-        </div>
-                                <div class="loading-more">
-                                    <i class="icon_loading"></i>
-                                    <a href="#">
-                                        Loading More
-                        </a>
+                                        {currentTodos.map((el, index) => <Item item={el} key={index} />)}
+                                    </div>
+
+                                    <nav>
+
+                                        <Pagination className="d-flex">
+
+                                            <PaginationItem>
+                                                {prev === 0 ? <PaginationLink disabled>First</PaginationLink> :
+                                                    <PaginationLink onClick={this.handleFirstClick} id={prev} href={prev}>First</PaginationLink>
+                                                }
+                                            </PaginationItem>
+                                            <PaginationItem>
+                                                {prev === 0 ? <PaginationLink disabled>Prev</PaginationLink> :
+                                                    <PaginationLink onClick={this.handleClick} id={prev} href={prev}>Prev</PaginationLink>
+                                                }
+                                            </PaginationItem>
+                                            {
+                                                pageNumbers.map((number, i) =>
+                                                    <Pagination key={i}>
+                                                        <PaginationItem active={pageNumbers[currentPage - 1] === (number) ? true : false} >
+                                                            <PaginationLink onClick={this.handleClick} href={number} key={number} id={number}>
+                                                                {number}
+                                                            </PaginationLink>
+                                                        </PaginationItem>
+                                                    </Pagination>
+                                                )}
+
+                                            <PaginationItem>
+                                                {
+                                                    currentPage === last ? <PaginationLink disabled>Next</PaginationLink> :
+                                                        <PaginationLink onClick={this.handleClick} id={pageNumbers[currentPage]} href={pageNumbers[currentPage]}>Next</PaginationLink>
+                                                }
+                                            </PaginationItem>
+
+                                            <PaginationItem>
+                                                {
+                                                    currentPage === last ? <PaginationLink disabled>Last</PaginationLink> :
+                                                        <PaginationLink onClick={this.handleLastClick} id={pageNumbers[currentPage]} href={pageNumbers[currentPage]}>Last</PaginationLink>
+                                                }
+                                            </PaginationItem>
+                                        </Pagination>
+                                    </nav>
+
+
                                 </div>
-                            
-                        
+                            </div>
+                        </div>
                     </div>
                 </section>
 
