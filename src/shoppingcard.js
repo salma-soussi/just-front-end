@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
- import Header from "./header"
- import Footer from "./footer"
+ import Header from "./site-visiteur/header"
+ import Footer from "./site-visiteur/footer"
  import product1 from "./img/cart-page/product-1.jpg"
  import product2 from "./img/cart-page/product-2.jpg"
  import product3 from "./img/cart-page/product-3.jpg"

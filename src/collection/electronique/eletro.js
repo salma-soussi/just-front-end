@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink, Row, Table } from 'reactstrap';
 import Item from "./item"
-import Header from "../../header"
-import Footer from "../../footer"
+import "../../site-visiteur/style-visiteur.css"
+import Header from "../../site-visiteur/header"
+import Footer from "../../site-visiteur/footer"
 import list from "./list"
+
 let prev  = 0;
 let next  = 0;
 let last  = 0;

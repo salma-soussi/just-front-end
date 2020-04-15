@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import '../../product.css';
 
 
-import Header from "../../header"
-import Footer from "../../footer"
+import Header from "../../site-visiteur/header"
+import Footer from "../../site-visiteur/footer"
 
 class Product extends Component {
     constructor(props) {

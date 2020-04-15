@@ -3,6 +3,8 @@ import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, Pag
 import Item from "./item"
 import womn from "../../img/products/women-1.jpg"
 
+import "../../site-visiteur/style-visiteur.css"
+
 import womn3 from "../../img/products/im66.jpg"
 import womn4 from "../../img/products/malek.jpg"
 
@@ -13,8 +15,8 @@ import womn4 from "../../img/products/malek.jpg"
 
 
 
-import Header from "../../header"
-import Footer from "../../footer"
+import Header from "../../site-visiteur/header"
+import Footer from "../../site-visiteur/footer"
 import list from "./list"
 let prev = 0;
 let next = 0;

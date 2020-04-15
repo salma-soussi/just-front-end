@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink, Row, Table } from 'reactstrap';
 import Item from "./item"
-import Header from "../../header"
-import Footer from "../../footer"
+import Header from "../../site-visiteur/header"
+import Footer from "../../site-visiteur/footer"
+import "../../site-visiteur/style-visiteur.css"
 
 import list from "./list"
 let prev = 0;
