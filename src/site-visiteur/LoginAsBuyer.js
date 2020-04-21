@@ -41,7 +41,7 @@ class LoginAsBuyer extends Component {
     
     login = e => {
         e.preventDefault();
-        axios.post('/users/login', this.state)
+        axios.post('http://localhost:3020/user/authentication', this.state)
             .then((data) => this.props.history.push(`/buyer_dashboard/${data.data.id}`))
             .catch((err) => alert(err))
     }

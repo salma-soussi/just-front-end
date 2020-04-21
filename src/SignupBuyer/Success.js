@@ -5,10 +5,10 @@ export class Success extends Component {
     constructor(props){
         super(props);
         this.state={
-            count: 3,
+            count: 6,
         }
         setTimeout(
-            () => {window.location.href='/loginasbuyer'}, 3000)
+            () => {window.location.href='/loginasbuyer'}, 6000)
         setInterval(
             () => this.setState({count: this.state.count - 1})
         , 1000)

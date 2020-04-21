@@ -3,16 +3,15 @@ import { connect } from 'react-redux';
 import axios from 'axios'
 import FormCompanyDetails from './FormCompanyDetails'
 import FormPersonalDetails from './FormPersonalDetails'
-import Confirm  from './Confirm'
+import Confirm from './Confirm'
 import Success from './Success'
 
 export class SignupBuyer extends Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             step: 1,
-            companyName: '',
-            secteur: '',
+            sector: '',
             address: '',
             phone: '',
             email: '',
@@ -26,18 +25,20 @@ export class SignupBuyer extends Component {
     // Go next step
     nextStep = () => {
         const { step } = this.state
-        this.setState({step: step + 1})
+        this.setState({ step: step + 1 })
     }
     // Go to previous step
     prevStep = () => {
         const { step } = this.state
-        this.setState({step: step - 1})
+        this.setState({ step: step - 1 })
     }
     // Add new User to Database
     submmitToDb = () => {
-        axios.post('/users/register', this.state)
-                .then(() => (this.props.newBuyer({...this.state})))
-                .catch((err) => alert(err))
+        console.log(this.state)
+        axios.post('http://localhost:5000/users/register', this.state)
+            .then(() => (this.props.newBuyer({ ...this.state })))
+            .catch((err) => alert(err))
+        console.log(this.state)
     }
     // Handle fields change
     handleChange = input => e => {
@@ -48,9 +49,9 @@ export class SignupBuyer extends Component {
 
     render() {
         const { step } = this.state
-        const { companyName, secteur, address, phone, email, firstName, lastName, occupation, governorate, password } = this.state
-        const values = { companyName, secteur, address, phone, email, firstName, lastName, occupation, governorate, password }
-        switch(step){
+        const { sector, address, phone, email, firstName, lastName, occupation, governorate, password } = this.state
+        const values = { sector, address, phone, email, firstName, lastName, occupation, governorate, password }
+        switch (step) {
             case 1:
                 return (
                     <FormCompanyDetails
@@ -70,7 +71,7 @@ export class SignupBuyer extends Component {
                 )
             case 3:
                 return (
-                    <Confirm 
+                    <Confirm
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         submmitToDb={this.submmitToDb}
@@ -82,17 +83,17 @@ export class SignupBuyer extends Component {
             default:
                 return (
                     <FormCompanyDetails
-                    nextStep={this.nextStep}
-                    handleChange={this.handleChange}
-                    values={values}
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
                     />
                 )
-            
+
         }
     }
 }
-const mapDispatchToProps = dispatch  => {
-    return{
+const mapDispatchToProps = dispatch => {
+    return {
         newBuyer: payload => {
             dispatch({
                 type: 'NEW_USER',
