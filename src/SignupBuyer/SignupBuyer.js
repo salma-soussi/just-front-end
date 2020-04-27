@@ -33,12 +33,28 @@ export class SignupBuyer extends Component {
         this.setState({ step: step - 1 })
     }
     // Add new User to Database
-    submmitToDb = () => {
-        console.log(this.state)
-        axios.post('http://localhost:5000/users/register', this.state)
-            .then(() => (this.props.newBuyer({ ...this.state })))
+     submmitToDb = () => {
+        var formData = new FormData();
+        formData.append('username', 'Chris');
+        console.log(formData)
+
+        formData.append("sector", this.state.sector);
+        formData.append("phone", this.state.phone);
+        formData.append("email", this.state.email);
+        formData.append("firstName", this.state.firstName);
+        formData.append("lastName", this.state.lastName);
+        formData.append("occupation", this.state.occupation);
+        formData.append("governorate", this.state.governorate);
+        formData.append("password", this.state.password);
+
+        console.log(this.state.sector)
+        console.log(this.state.phone)
+        console.log(this.state.occupation)
+        console.log(formData)
+        axios.post('http://localhost:3020/buyer/add', formData)
+            .then(() => (this.props.newBuyer({ ...formData })))
             .catch((err) => alert(err))
-        console.log(this.state)
+
     }
     // Handle fields change
     handleChange = input => e => {

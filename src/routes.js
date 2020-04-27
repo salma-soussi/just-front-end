@@ -21,15 +21,23 @@ import DetailInform from "./collection/informatique/detailInform"
 import DetailSport from "./collection/sport/detailSport"
 import Shop from "./site-visiteur/shop"
 
-import Buyerdashboard from "./Buyer-dashboard/components/dashboard"
+import BuyerDashboard from "./Buyer-dashboard/components/dashboard"
 import NewRequest from "./Buyer-dashboard/components/NewRequest"
-import profilBuyer from "./Buyer-dashboard/components/profilBuyer"
+import profileBuyer from "./Buyer-dashboard/components/profilBuyer"
 import AllQuotationSent from "./Buyer-dashboard/components/AllQuotationSent"
 import AllQuotationReceived from "./Buyer-dashboard/components/AllQuotationReceived"
 import AllPurchases from "./Buyer-dashboard/components/AllPurchases"
 import QuotationSend from "./Buyer-dashboard/Quotation_status/QuotationSend"
 import QuotationReceived from "./Buyer-dashboard/Quotation_status/QuotationReceived"
 import QuotationClosed from "./Buyer-dashboard/Quotation_status/QuotationClosed"
+
+import SellerDashboard from "./Seller-dashboard/dashboard_Cards/Dashboard"
+import RequestQuotation from "./Seller-dashboard/components/requestQuotation"
+import AnsweredQuotation from "./Seller-dashboard/components/AnsweredQuotation"
+import SoldItems from "./Seller-dashboard/components/SoldItems"
+import Customers from "./Seller-dashboard/components/Customers"
+import profileSeller from "./Seller-dashboard/components/Profile"
+
 
 class Routes extends Component {
     render() {
@@ -60,15 +68,26 @@ class Routes extends Component {
                 <Route exact path="/detailSport" component={DetailSport} />
 
                 {/*********************dashboard-buyer*********************+ */}
-                <Route exact path="/buyer_dashboard" component={Buyerdashboard} />
+                <Route exact path="/buyer_dashboard" component={BuyerDashboard} />
                 <Route exact path="/buyer_dashboard/new-request" component={NewRequest} />
-                <Route exact path="/buyer_dashboard/profil" component={profilBuyer} />
+                <Route exact path="/buyer_dashboard/profile" component={profileBuyer} />
                 <Route exact path="/buyer_dashboard/all-quotation-sent" component={AllQuotationSent} />
                 <Route exact path="/buyer_dashboard/all-quotation-received" component={AllQuotationReceived} />
                 <Route exact path="/buyer_dashboard/all-purchases" component={AllPurchases} />
                 <Route exact path="/buyer_dashboard/quotation-sent" component={QuotationSend} />
                 <Route exact path="/buyer_dashboard/quotation-received" component={QuotationReceived} />
                 <Route exact path="/buyer_dashboard/quotation-closed" component={QuotationClosed} />
+
+                {/*********************dashboard-seller********************* */}
+                <Route exact path="/seller_dashboard" component={SellerDashboard} />
+                <Route exact path="/seller_dashboard/req-quotations" component={RequestQuotation} />
+                <Route exact path="/seller_dashboard/answered-quotation" component={AnsweredQuotation} />
+                <Route exact path="/seller_dashboard/sold-items" component={SoldItems} />
+                <Route exact path="/seller_dashboard/customer" component={Customers} />
+                <Route exact path="/seller_dashboard/profile" component={profileSeller} />
+
+
+
 
             </div>
         );

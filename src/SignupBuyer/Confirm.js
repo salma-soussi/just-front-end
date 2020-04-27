@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, List, ListItem, ListItemText, Divider, ButtonGroup } from '@material-ui/core'
 
 export class Confirm extends Component {
+    
     continue = e => {
         e.preventDefault()
         this.props.submmitToDb()

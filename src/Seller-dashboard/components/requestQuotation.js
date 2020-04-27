@@ -7,7 +7,7 @@ import { Chip, TablePagination, TableFooter, IconButton, Paper, TableRow, TableH
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { connect } from 'react-redux'
-// import Main from './Main';
+import Main from './Main';
 
 export const StyledTableCell = withStyles(theme => ({
     head: {
@@ -22,7 +22,7 @@ export const StyledTableCell = withStyles(theme => ({
 export const StyledTableRow = withStyles(theme => ({
     root: {
         '&:nth-of-type(odd)': {
-            // backgroundColor: theme.palette.background.main
+            backgroundColor: theme.palette.background.main
         },
     },
 }))(TableRow);
@@ -135,64 +135,64 @@ function RequestQuotation(props) {
         var pathID = window.location.pathname.substr(-24)
     }
     return (
-        // <Main pageName={'Quotation Requests'}>
-        <Paper className={classes.root}>
-            <p className="note-quotation-req">Inside this table you will find all the recent quotation requests, waiting for your answer.
+        <Main pageName={'Quotation Requests'}>
+            <Paper className={classes.root}>
+                <p className="note-quotation-req">Inside this table you will find all the recent quotation requests, waiting for your answer.
                     <br />Do not wait too long to answer, otherwise, probably, you will miss the opportunity to sell your product.<br />
                     Click on the ones waiting for your answer, see their informations and requirements, fill in the quotation, price for every item,
                     price per unit, tax and total price then click on <em style={{ textDecoration: "underline", fontWeight: 'bold' }}>Send</em>. Now it's your time to wait their answer (call, email) if they are
                     going to buy your product. GOOD LUCK!</p>
-            <div className={classes.tableWrapper}>
-                <Table className={classes.table}>
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell align="left">Quot.N°</StyledTableCell>
-                            <StyledTableCell align="left">Company Name</StyledTableCell>
-                            <StyledTableCell align="left">First Name</StyledTableCell>
-                            <StyledTableCell align="left">Last Name</StyledTableCell>
-                            <StyledTableCell align="left">Description</StyledTableCell>
-                            <StyledTableCell align="left">Quantity</StyledTableCell>
-                            <StyledTableCell align="left">Date</StyledTableCell>
-                            <StyledTableCell align="left">Valid Until</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {requesListFiltered.length === 0 ? <h4 align="center">No requests received!</h4> :
-                            requesListFiltered.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => row.details.map(el => (
-                                <StyledTableRow className="row-tab-req" key={row._id} component={Link} to={`/seller_dashboard/req-quotations/${row._id}/${row.status}/${pathID}`}>
-                                    <StyledTableCell component="th" scope="row">{row.quotationNum}</StyledTableCell>
-                                    <StyledTableCell align="left">{row.companyName}</StyledTableCell>
-                                    <StyledTableCell align="left">{row.firstName}</StyledTableCell>
-                                    <StyledTableCell align="left">{row.lastName}</StyledTableCell>
-                                    <StyledTableCell align="left">{(el.description2 !== '' || el.description3 !== '' || el.description4 !== '') ? <Chip className={classes.chip} label={el.description1 + '  ➕'} color="primary" /> : <Chip className={classes.chip} label={el.description1} color="primary" />}</StyledTableCell>
-                                    <StyledTableCell align="center">{el.quantity1}</StyledTableCell>
-                                    <StyledTableCell align="left">{String(row.date).slice(0, 10)}</StyledTableCell>
-                                    <StyledTableCell align="left">{String(row.validUntil).slice(0, 10)}</StyledTableCell>
-                                </StyledTableRow>
-                            )))}
-                    </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TablePagination
-                                rowsPerPageOptions={[5, 10, 25]}
-                                colSpan={3}
-                                count={requesListFiltered.length}
-                                rowsPerPage={rowsPerPage}
-                                page={page}
-                                SelectProps={{
-                                    inputProps: { 'aria-label': 'rows per page' },
-                                    native: true,
-                                }}
-                                onChangePage={handleChangePage}
-                                onChangeRowsPerPage={handleChangeRowsPerPage}
-                                ActionsComponent={TablePaginationActions}
-                            />
-                        </TableRow>
-                    </TableFooter>
-                </Table>
-            </div>
-        </Paper>
-        // </Main>
+                <div className={classes.tableWrapper}>
+                    <Table className={classes.table}>
+                        <TableHead>
+                            <TableRow>
+                                <StyledTableCell align="left">Quot.N°</StyledTableCell>
+                                <StyledTableCell align="left">Company Name</StyledTableCell>
+                                <StyledTableCell align="left">First Name</StyledTableCell>
+                                <StyledTableCell align="left">Last Name</StyledTableCell>
+                                <StyledTableCell align="left">Description</StyledTableCell>
+                                <StyledTableCell align="left">Quantity</StyledTableCell>
+                                <StyledTableCell align="left">Date</StyledTableCell>
+                                <StyledTableCell align="left">Valid Until</StyledTableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {requesListFiltered.length === 0 ? <h4 align="center">No requests received!</h4> :
+                                requesListFiltered.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => row.details.map(el => (
+                                    <StyledTableRow className="row-tab-req" key={row._id} component={Link} to={`/seller_dashboard/req-quotations/${row._id}/${row.status}/${pathID}`}>
+                                        <StyledTableCell component="th" scope="row">{row.quotationNum}</StyledTableCell>
+                                        <StyledTableCell align="left">{row.companyName}</StyledTableCell>
+                                        <StyledTableCell align="left">{row.firstName}</StyledTableCell>
+                                        <StyledTableCell align="left">{row.lastName}</StyledTableCell>
+                                        <StyledTableCell align="left">{(el.description2 !== '' || el.description3 !== '' || el.description4 !== '') ? <Chip className={classes.chip} label={el.description1 + '  ➕'} color="primary" /> : <Chip className={classes.chip} label={el.description1} color="primary" />}</StyledTableCell>
+                                        <StyledTableCell align="center">{el.quantity1}</StyledTableCell>
+                                        <StyledTableCell align="left">{String(row.date).slice(0, 10)}</StyledTableCell>
+                                        <StyledTableCell align="left">{String(row.validUntil).slice(0, 10)}</StyledTableCell>
+                                    </StyledTableRow>
+                                )))}
+                        </TableBody>
+                        <TableFooter>
+                            <TableRow>
+                                <TablePagination
+                                    rowsPerPageOptions={[5, 10, 25]}
+                                    colSpan={3}
+                                    count={requesListFiltered.length}
+                                    rowsPerPage={rowsPerPage}
+                                    page={page}
+                                    SelectProps={{
+                                        inputProps: { 'aria-label': 'rows per page' },
+                                        native: true,
+                                    }}
+                                    onChangePage={handleChangePage}
+                                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                                    ActionsComponent={TablePaginationActions}
+                                />
+                            </TableRow>
+                        </TableFooter>
+                    </Table>
+                </div>
+            </Paper>
+        </Main>
     );
 }
 const mapStateToProps = state => {
