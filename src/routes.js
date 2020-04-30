@@ -37,7 +37,12 @@ import AnsweredQuotation from "./Seller-dashboard/components/AnsweredQuotation"
 import SoldItems from "./Seller-dashboard/components/SoldItems"
 import Customers from "./Seller-dashboard/components/Customers"
 import profileSeller from "./Seller-dashboard/components/Profile"
-
+import Stats from "./Seller-dashboard/components/Stats"
+import AnsweredQuotationTemplate from './Seller-dashboard/Quotation_Status/AnsweredQuotationTemplate';
+import QuotationForm from "./Seller-dashboard/Quotation_Status/QuotationForm"
+import QuotationReqTemplate from "./Seller-dashboard/Quotation_Status/QuotationReqTemplate"
+import SoldQuotation from "./Seller-dashboard/Quotation_Status/SoldQuotation"
+import customerContact from "./Seller-dashboard/components/CustomerContact"
 
 class Routes extends Component {
     render() {
@@ -85,6 +90,12 @@ class Routes extends Component {
                 <Route exact path="/seller_dashboard/sold-items" component={SoldItems} />
                 <Route exact path="/seller_dashboard/customer" component={Customers} />
                 <Route exact path="/seller_dashboard/profile" component={profileSeller} />
+                <Route exact path="/seller_dashboard/Stats" component={Stats} />
+                <Route exact path="/seller_dashboard/AnsweredQuotationTemplate" component={AnsweredQuotationTemplate} />
+                <Route exact path="/seller_dashboard/QuotationForm" component={QuotationForm} />
+                <Route exact path="/seller_dashboard/QuotationReqTemplate" component={QuotationReqTemplate} />
+                <Route exact path="/seller_dashboard/SoldQuotation" component={SoldQuotation} />
+                <Route exact path="/seller_dashboard/customerContact" component={customerContact} />
 
 
 
